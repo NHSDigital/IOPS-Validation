@@ -15,11 +15,11 @@ import * as console from "console";
 const jsonminify = require("jsonminify");
 let fileName = 'package.json';
     let source = '../'
-    let destination = '../../'
+    let destination = '../../validation-service-fhir-r4'
 
     const args = require('minimist')(process.argv.slice(2))
 
-    let destinationPath = 'validation-service-fhir-r4/src/main/resources';
+    let destinationPath = '/src/main/resources';
 
 
 let ontoServer: string = 'https://ontology.nhs.uk/authoring/fhir/';
@@ -66,7 +66,7 @@ if (process.env.ONTO_URL != undefined) {
             "packageName": packageName,
             "version": packageVersion
         })
-        fs.writeFile(path.join(workerDir, '../validation-service-fhir-r4/src/main/resources' + '/manifest.json'), JSON.stringify(manifest, null, 2), function (err) {
+        fs.writeFile(path.join(workerDir, destinationPath + '/manifest.json'), JSON.stringify(manifest, null, 2), function (err) {
             if (err) {
                 return console.error(err);
             }
