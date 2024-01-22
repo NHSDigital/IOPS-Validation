@@ -62,6 +62,11 @@ Examples of use within a workflow can be found:
 - https://github.com/NHSDigital/NHSDigital-FHIR-ImplementationGuide/blob/master/.github/workflows/FHIRValidation.yml
 - https://github.com/NHSDigital/NHSDigital-FHIR-Medicines-ImplementationGuide/blob/master/.github/workflows/integration.yml
 
+## options
+The test-script has been set up to allow additiona options which will reside in a file named "options.json" within the repo that is to be tested. The attributes are:
+- "strict-validation" - Boolean: set to true to elevate all warnings to errors
+- "ignore-folders" - Array: a list of folders to ignore. These should not contain any FHIR assets or examples. Any folder starting with `.` will be ignored irrespective of what is in this attribute.
+- ignore-files - Array: a list of files to ignore when validating.
 
 # Simplifier IG Content Checker
 This action checks a Simplifier implementation guide for spelling, http errors and invalid links. More information can be found within the [IGPageContentValidator](https://github.com/NHSDigital/IOPS-FHIR-Test-Scripts/tree/main/IGPageContentValidator) folder.
