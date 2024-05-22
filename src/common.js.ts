@@ -265,7 +265,7 @@ function raiseWarning(issue: OperationOutcomeIssue, failOnWarning:boolean): bool
         
         // THESE WARNINGS SHOULD ALWAYS BE SILENTLY IGNORED
 	// Issue with GitHub validator requiring code to be in CodeSystem asset when there is none. No issues with the validator itself. The ValueSet in question is https://terminology.hl7.org/5.5.0/CodeSystem-v3-hgvs.html    
-	if (issue.diagnostics.includes('http://hl7.org/fhir/uv/genomics-reporting/ValueSet/hgvs-vs')) return false;
+	if (issue.diagnostics.includes('Human Genome Variation Society (HGVS) Nomenclature')) return false;
         //if (issue.diagnostics.includes('Code system https://dmd.nhs.uk/ could not be resolved.')) return false
 	// Issue with hapi giving incorrect error when one code is from the valueset, but another is not. See https://github.com/hapifhir/hapi-fhir/issues/4152
         if (issue.diagnostics.includes('Inappropriate CodeSystem URL') && issue.diagnostics.includes('for ValueSet: http://hl7.org/fhir/ValueSet/all-languages')) {
