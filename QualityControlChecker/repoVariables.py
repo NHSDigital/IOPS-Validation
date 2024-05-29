@@ -7,3 +7,6 @@ nhseVar = {'project':'England',
            'ignoreURLPrefix':['http://hl7.org/fhir/5.0','https://digital.nhs.uk/services/organisation-data-service'],
            'org':'NHS England', 
            'email':'interoperabilityteam@nhs.net'}
+nhseProgrammesVar = {'project':'England',
+           'urlPrefix': 'https://fhir.nhs.uk/England',
+           'ignoreURLPrefix':['http://hl7.org/fhir/5.0','https://digital.nhs.uk/services/organisation-data-service']}
