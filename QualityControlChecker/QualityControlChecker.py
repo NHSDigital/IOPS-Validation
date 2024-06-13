@@ -172,7 +172,7 @@ def checkContactDetailsJSON(jsonFile,warnings):
     if 'value' in mainVar:
         contact = {'system':'email','value':mainVar['email'],'use':'work','rank':1}
     else:
-        contact = {'system':'email','use':'work','rank':'1'}
+        contact = {'system':'email','use':'work','rank':1}
         
     for key,value in contact.items():
         try:
