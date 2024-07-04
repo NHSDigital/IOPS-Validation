@@ -29,10 +29,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
-        run: |
-          sudo apt install aspell
-
       - name: Execute Naming Convention Check
         run: python test_scripts/QualityControlChecker/QualityControlChecker.py
   
@@ -50,6 +46,10 @@ jobs:
           repository: NHSDigital/IOPS-FHIR-Test-Scripts
           ref: main
           path: test_scripts
+          
+      - name: Install dependencies
+        run: |
+          sudo apt install aspell
           
       - name: Execute Spell Check
         run: find -type f -name "*.xml" -exec sh -c 'for f; do echo $f;aspell list --camel-case --lang en_GB -W 2 -p ./test_scripts/IGPageContentValidator/.aspell.en.pws <$f |sort|uniq -c;done' sh {} \;
