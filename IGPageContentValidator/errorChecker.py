@@ -4,6 +4,7 @@ This script checks webpages for any error messages
 """
 
 from linkScraper import *
+import re
 
 
 ''' Interates over ListOfLinks returning any pages that have errors '''
