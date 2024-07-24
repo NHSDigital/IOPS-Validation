@@ -26,7 +26,7 @@ def consoleLog(warnings,soup):
             for line in lines:
                 try:
                     if 'Stacktrace' not in msg[1] and 'var' not in line and 'console.log' not in line:
-                        warnings.append(msg[0]+" "+msg[1].replace(' At','\nAt')) #+" "+line.split("`")[1].rsplit("`", 0)[0]
+                        warnings.append(msg[0]+" "+line.split("`")[1].rsplit("`", 0)[0].replace(' At','\nAt'))
                 except IndexError:
                     pass
     return(warnings)
