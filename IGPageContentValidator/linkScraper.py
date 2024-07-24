@@ -19,13 +19,10 @@ def RequestData(url):
 def ListOfLinks(url):
     soup = RequestData(url)
     websites = []
-    print("webpages to check")
     for link in soup.find_all('a'):
         site = link.get('href')
         if isinstance(site, str) and site[0:6]=='/guide':
-            print(site)
             websites.append(site)
-    print('\n\n')
     list_set = set(websites)
     unique_websites = list(list_set)
     return unique_websites
