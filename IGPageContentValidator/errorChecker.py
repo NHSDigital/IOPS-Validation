@@ -44,7 +44,7 @@ def getSoup(url):
     return soup
         
     
-websites = ListOfLinks(url)
+websites = ListOfLinks(data)
 for suffix in websites:
     warnings = []
     soup = getSoup('https://simplifier.net'+ suffix)
