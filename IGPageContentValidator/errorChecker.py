@@ -37,7 +37,7 @@ def printWarnings(warnings, url):
     for x in warnings:
         print("\t",x,"\n")
             
-''' Interates over ListOfLinks returning any pages that have errors '''
+''' Iterates over ListOfLinks returning any pages that have errors '''
 def getSoup(url):
     data  = requests.get(url).text
     soup = BeautifulSoup(data,"html.parser")
