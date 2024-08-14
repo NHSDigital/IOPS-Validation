@@ -303,10 +303,14 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
             
             // ignore ods codesystems
             if (issue.diagnostics.includes('https://digital.nhs.uk/services/organisation-data-service/CodeSystem/ODS')) return false
+
+	    // ignore QuestionnaireResponse error https://github.com/hapifhir/hapi-fhir/issues/1184
+	    if (issue.diagnostics.includes('No response answer found for required item')) return false;
         }
         if (issue.location !== undefined && issue.location.length>0) {
             if (issue.location[0].includes('StructureMap.group')) return false;
         }
+
     }
     return true;
   }
