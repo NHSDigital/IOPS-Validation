@@ -312,6 +312,7 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
         }
 
     }
+    System.out.println("Issue: "+issue+"\nDignostics: "+issue.diagnostics);
     return true;
   }
 
