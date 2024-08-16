@@ -313,6 +313,8 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
         }
 
     }
+    console.log(issue)
+    console.log(issue.diagnsotics)
     return true;
   }
 
