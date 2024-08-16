@@ -279,6 +279,9 @@ function raiseWarning(issue: OperationOutcomeIssue, failOnWarning:boolean): bool
         
         //Fragment codesystems can't be checked
         if (issue.diagnostics.includes('Unknown code in fragment CodeSystem')) return false;
+	
+	// ignore QuestionnaireResponse error https://github.com/hapifhir/hapi-fhir/issues/1184
+	if (issue.diagnostics.includes('answer')) return false;
     }
 
     // if error not handled above, return error if FailOnWarning is true 
