@@ -279,6 +279,9 @@ function raiseWarning(issue: OperationOutcomeIssue, failOnWarning:boolean): bool
         
         //Fragment codesystems can't be checked
         if (issue.diagnostics.includes('Unknown code in fragment CodeSystem')) return false;
+	
+	// ignore QuestionnaireResponse error https://github.com/hapifhir/hapi-fhir/issues/1184
+	if (issue.diagnostics.includes('answer')) return false;
     }
 
     // if error not handled above, return error if FailOnWarning is true 
@@ -303,11 +306,18 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
             
             // ignore ods codesystems
             if (issue.diagnostics.includes('https://digital.nhs.uk/services/organisation-data-service/CodeSystem/ODS')) return false
+
+
         }
         if (issue.location !== undefined && issue.location.length>0) {
             if (issue.location[0].includes('StructureMap.group')) return false;
+	// ignore QuestionnaireResponse error https://github.com/hapifhir/hapi-fhir/issues/1184
+	if (issue.diagnostics.includes('answer')) return false;
         }
+
     }
+    console.log(issue)
+    console.log(issue.diagnsotics)
     return true;
   }
 
