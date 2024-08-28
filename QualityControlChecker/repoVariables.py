@@ -1,6 +1,6 @@
 ukcoreVar = {'project':'UKCore',
              'urlPrefix': 'https://fhir.hl7.org.uk',
-             'ignoreURLPrefix':['http://hl7.org/fhir/5.0'],
+             'ignoreURLPrefix':['http://hl7.org/fhir/5.0', 'http://hl7.org/fhir/6.0'],
              'org':'HL7 UK', 'email':'ukcore@hl7.org.uk'}
 nhseVar = {'project':'England',
            'urlPrefix': 'https://fhir.nhs.uk/England',
