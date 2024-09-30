@@ -299,10 +299,13 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
             if (issue.diagnostics.includes('http://loinc.org')) return false;
             
             // ignore readctv3 errors
-            if (issue.diagnostics.includes('http://read.info/ctv3')) return false
+            if (issue.diagnostics.includes('http://read.info/ctv3')) return false;
             
             // ignore ods codesystems
-            if (issue.diagnostics.includes('https://digital.nhs.uk/services/organisation-data-service/CodeSystem/ODS')) return false
+            if (issue.diagnostics.includes('https://digital.nhs.uk/services/organisation-data-service/CodeSystem/ODS')) return false;
+
+	    // ignore incorrect error for QuestionnaireReponse
+	    if (issue.diagnostics.includes('No response answer')) return false;
         }
         if (issue.location !== undefined && issue.location.length>0) {
             if (issue.location[0].includes('StructureMap.group')) return false;
