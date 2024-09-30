@@ -304,7 +304,7 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
             // ignore ods codesystems
             if (issue.diagnostics.includes('https://digital.nhs.uk/services/organisation-data-service/CodeSystem/ODS')) return false;
 
-	    // ignore incorrect error for QuestionnaireReponse
+	    // ignore incorrect error for QuestionnaireReponse This relates to a question which isn't enabled (the enableWhen condition is not satisfied so the required condition on the question should not be evaluated)
 	    if (issue.diagnostics.includes('No response answer')) return false;
         }
         if (issue.location !== undefined && issue.location.length>0) {
