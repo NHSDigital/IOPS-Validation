@@ -30,7 +30,7 @@ jobs:
           python-version: '3.x'
 
       - name: Execute Naming Convention Check
-        run: python test_scripts/QualityControlChecker/QualityControlChecker.py
+        run: python -u test_scripts/QualityControlChecker/QualityControlChecker.py
   
   job2:
     name: Spell Checker
