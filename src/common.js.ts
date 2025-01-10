@@ -279,6 +279,9 @@ function raiseWarning(issue: OperationOutcomeIssue, failOnWarning:boolean): bool
         
         //Fragment codesystems can't be checked
         if (issue.diagnostics.includes('Unknown code in fragment CodeSystem')) return false;
+
+	//Hide errors relating to finding codes from system:http://human-phenotype-ontology.org as these are not within the Terminology server
+	if (issue.diagnostics.includes('Validation failed for \'http://human-phenotype-ontology.org')) return false;
     }
 
     // if error not handled above, return error if FailOnWarning is true 
