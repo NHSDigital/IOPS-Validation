@@ -309,6 +309,9 @@ function raiseError(issue: OperationOutcomeIssue) : boolean {
 
 	    // ignore incorrect error for QuestionnaireReponse This relates to a question which isn't enabled (the enableWhen condition is not satisfied so the required condition on the question should not be evaluated)
 	    if (issue.diagnostics.includes('No response answer')) return false;
+
+	    //Hide errors relating to finding codes from system:http://human-phenotype-ontology.org as these are not within the Terminology server
+	    if (issue.diagnostics.includes('Validation failed for \'http://human-phenotype-ontology.org')) return false;
         }
         if (issue.location !== undefined && issue.location.length>0) {
             if (issue.location[0].includes('StructureMap.group')) return false;
